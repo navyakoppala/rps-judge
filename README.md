@@ -106,3 +106,27 @@ and explainability in a conversational AI system.
 
 This implementation is fully aligned with the
 Applied AI Engineer (Conversational Agents) assessment requirements.
+
+
+## Optional Gemini Integration
+
+An optional branch (`gemini-integration`) demonstrates how this system
+could be connected to a real LLM (e.g., Google Gemini).
+
+The architecture remains unchanged:
+- Prompts define all decision logic
+- Application code only passes inputs and state
+- The AI Judge produces structured decisions
+
+Due to environment and API constraints, this branch is illustrative and
+not required to run for evaluation.
+
+## Edge Cases Considered
+
+- Ambiguous inputs ("fire", "@#$%", "maybe rock") → UNCLEAR
+- Multiple interpretations ("rock or paper") → UNCLEAR
+- Reusing bomb after it was already used → INVALID
+- bomb vs bomb → Draw
+- Invalid inputs waste the turn
+- Clear moves resolve winners using rules only
+

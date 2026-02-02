@@ -1,16 +1,16 @@
 import random
 from pathlib import Path
 
-# ----------------------------
+
 # Load prompts
-# ----------------------------
+
 BASE_DIR = Path(__file__).parent
 SYSTEM_PROMPT = (BASE_DIR / "Prompts" / "system_prompt.txt").read_text()
 INSTRUCTION_PROMPT = (BASE_DIR / "Prompts" / "instruction_prompt.txt").read_text()
 
-# ----------------------------
+
 # Minimal game state (AI-readable)
-# ----------------------------
+
 state = {
     "round": 1,
     "user_bomb_used": False
@@ -18,9 +18,9 @@ state = {
 
 BOT_MOVES = ["rock", "paper", "scissors", "bomb"]
 
-# ----------------------------
+
 # AI Judge (prompt-driven)
-# ----------------------------
+
 def call_ai_judge(user_input, bot_move, state):
     """
     This function represents the AI Judge.
@@ -53,10 +53,10 @@ Winner: <User | Bot | Draw | None>
 Explanation: <clear reasoning>
 """
 
-    # ----------------------------
+    
     # Placeholder AI response
     # (Replace with Gemini / LLM call later)
-    # ----------------------------
+    
     return f"""
 Round: {state['round']}
 User Move: {user_input}
@@ -66,9 +66,9 @@ Winner: (AI decides)
 Explanation: The AI Judge evaluates the user's intent, applies the rules from the prompt, and produces this decision.
 """
 
-# ----------------------------
+
 # Game loop (glue only)
-# ----------------------------
+
 print("=== Rock Paper Scissors Plus (AI Judge) ===")
 print("Type quit to exit\n")
 
