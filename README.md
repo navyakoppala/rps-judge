@@ -8,7 +8,14 @@ The focus of this implementation is not on building a full game engine,
 but on demonstrating strong prompt design, clear reasoning boundaries,
 and explainable AI decisions.
 
----
+## Decision Authority
+
+All game decisions (move validity, winner determination, bomb usage, and ambiguity handling)
+are intentionally delegated to the AI Judge via prompt design.
+
+The Python code contains no rule-based logic and acts only as a minimal execution harness
+and state carrier. This ensures that decision-making is prompt-driven rather than hardcoded.
+
 
 ## Design Goals
 - Use prompting to drive all decision-making
@@ -16,7 +23,6 @@ and explainable AI decisions.
 - Handle ambiguous and invalid inputs explicitly
 - Produce structured and explainable outputs
 
----
 
 ## Prompt Design
 The solution uses two prompts:
@@ -40,7 +46,7 @@ Encodes all game rules and constraints, including:
 
 All game logic resides in the prompts, not in application code.
 
----
+
 
 ## Architecture
 The system follows a clean separation of concerns:
@@ -51,7 +57,6 @@ The system follows a clean separation of concerns:
 
 The application code acts only as minimal glue for state handling and prompt construction.
 
----
 
 ## State Management
 Only minimal state is maintained:
@@ -60,7 +65,7 @@ Only minimal state is maintained:
 
 This satisfies the assignment constraints while enabling correct rule enforcement.
 
----
+
 
 ## Edge Cases Considered
 The prompts explicitly handle:
@@ -71,7 +76,6 @@ The prompts explicitly handle:
 
 Invalid or unclear moves correctly waste the turn.
 
----
 
 ## Why Logic Is Not in Code
 All validation and winner determination are delegated to the AI Judge
@@ -79,7 +83,6 @@ via prompt instructions. The application code intentionally avoids
 hardcoded logic (e.g., if-else comparisons) to align with the assignment’s
 prompt-driven design requirement.
 
----
 
 ## Future Improvements
 With additional time, the system could be extended by:
@@ -87,14 +90,13 @@ With additional time, the system could be extended by:
 - Adding confidence scores for intent interpretation
 - Improving multi-round result summarization
 
----
 
 ## Key Takeaway
 This project demonstrates how careful prompt engineering can replace
 traditional hardcoded logic while preserving correctness, clarity,
 and explainability in a conversational AI system.
 
----
+
 
 ### Submission Status
 - Prompt Design: Completed
